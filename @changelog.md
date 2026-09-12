@@ -7,4 +7,5 @@
   (`905582677`, `0x9da83c` on 2.31), verifies the eight-byte prologue and the twelve bytes around
   the patch site, and replaces `mov r15b, al` at `+0x14d` with `xor r15b, r15b`. Every receiver is
   then an ordinary candidate to represent its station, so the Radioport, at the listener, always
-  wins for the station it is on. Any mismatch logs and patches nothing. Awaiting an in-game run.
+  wins for the station it is on. Any mismatch logs and patches nothing. Verified in game the same day: a car tuned to the
+  player's station passed and the station stayed active, list entry and voice handle kept.
