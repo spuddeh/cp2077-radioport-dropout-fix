@@ -14,7 +14,5 @@
   throughout. Heard: the station played the whole time. Before the fix the same event silenced it
   every time, five runs out of five.
 
-## Planned
-- [ ] 1.0.0 build (runtime independent): confirm the `patched:` line in
-  `red4ext/logs/radioportdropoutfix-*.log` on Testing before the first upload.
-- [ ] Nexus release.
+## Released
+- 1.0.0 on Nexus (mod 33838) and GitHub, 2026-09-13. The runtime-independent build logged `patched:` on Testing and held against world radios and traffic.

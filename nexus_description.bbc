@@ -9,16 +9,6 @@ The game plays at most four radio stations at once, the four whose nearest radio
 [center][img]https://staticdelivery.nexusmods.com/mods/3333/images/33838/33838-1789264474-1461224021.png[/img][/center]
 
 This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so your station is measured from where you stand, and the station you are listening to keeps its place.
-
-[line]
-[color=#ffff00][size=5][b]Features[/b][/size][/color]
-[list]
-[*][b]No more dropouts.[/b] A car or world radio tuned to your station no longer silences your Radioport.[/*]
-[*][b]Nothing else changes.[/b] The game still plays four stations at most; radios you are not listening to behave exactly as before.[/*]
-[*][b]Safe on a game update.[/b] The mod checks the game code before changing it. If a game update has changed that code, it changes nothing and writes a line saying so to [font=Courier New]red4ext\logs\[/font].[/*]
-[*][b]Nothing to configure.[/b] No settings, no keybinds, no menu.[/*]
-[*][b]Safe to remove.[/b] Nothing is written to your save and no game file is touched.[/*]
-[/list]
 [line]
 [color=#ffff00][size=5][b]Requirements[/b][/size][/color]
 [list]
