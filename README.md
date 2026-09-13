@@ -31,4 +31,11 @@ Releases ship the committed DLL, so see `RELEASING.md` before tagging.
 
 ## License
 
-MIT.
+Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may use, modify, and share
+this mod and its source for any **noncommercial** purpose, as long as you credit the original
+creator. Commercial use, including paid mods or selling, is not permitted.
+
+## Disclaimer
+
+This mod was developed with the assistance of an LLM. All in-game testing and code validation was
+performed by a human. No rogue AIs were permitted through the Blackwall.
