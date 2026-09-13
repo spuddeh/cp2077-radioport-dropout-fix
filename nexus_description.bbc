@@ -6,7 +6,7 @@ Walking around with the Radioport on, your station sometimes cuts out for ten to
 
 The game plays at most four radio stations at once, the four whose nearest radio is closest to you. It measures each station from one radio only, and it will not use your Radioport for that whenever any other radio in the world is tuned to the same station, a passing car or a radio in a bar or apartment, even one that is switched off. When that radio is further away than four other stations' radios, your station is no longer one of the four, and the Radioport goes silent until that radio is out of range. A world radio playing your station goes silent with it.
 
-This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so it is always the nearest, and the station you are listening to always keeps its place.
+This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so your station is measured from where you stand, and the station you are listening to keeps its place.
 
 [line]
 [color=#ffff00][size=5][b]Features[/b][/size][/color]
