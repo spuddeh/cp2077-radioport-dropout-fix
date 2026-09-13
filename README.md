@@ -21,7 +21,7 @@ game update has changed the function, the plugin logs a line and changes nothing
 
 ## Install
 
-Drop the archive into your mod manager, or copy `red4ext\plugins\RadioportDropoutFix\` into the
+Download from [Nexus Mods](https://www.nexusmods.com/cyberpunk2077/mods/33838). Drop the archive into your mod manager, or copy `red4ext\plugins\RadioportDropoutFix\` into the
 game folder. Requires [RED4ext](https://www.nexusmods.com/cyberpunk2077/mods/2380).
 
 ## Build
@@ -31,7 +31,7 @@ Releases ship the committed DLL, so see `RELEASING.md` before tagging.
 
 ## License
 
-Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may use, modify, and share
+Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You may use, modify, and share
 this mod and its source for any **noncommercial** purpose, as long as you credit the original
 creator. Commercial use, including paid mods or selling, is not permitted.
 

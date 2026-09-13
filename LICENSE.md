@@ -2,7 +2,7 @@
 
 <https://polyformproject.org/licenses/noncommercial/1.0.0>
 
-Required Notice: Copyright 2026 Spuddeh (https://github.com/spuddeh/cp2077-radioport-dropout-fix)
+Required Notice: Copyright 2026 Spuddeh (https://www.nexusmods.com/cyberpunk2077/mods/33838)
 
 ## Acceptance
 
