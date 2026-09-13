@@ -4,8 +4,8 @@
 - The radio manager measures a station by its nearest receiver, the Radioport included. A car
   tuned to the player's station no longer displaces the Radioport as the measuring point, so the
   station keeps its place among the four that play.
-- The patch is verified byte for byte before it is written; on any other game build the plugin logs
-  and does nothing.
+- The patch is verified byte for byte before it is written. RED4ext loads the plugin on any game
+  build; where the function or the bytes differ, the plugin logs and does nothing.
 
 ## Verified in game
 - 2026-09-12, Testing, at the spot with four world radios within 80 m: a car tuned to Body Heat,
@@ -15,4 +15,6 @@
   every time, five runs out of five.
 
 ## Planned
-- Nexus release once the run passes.
+- [ ] 1.0.0 build (runtime independent): confirm the `patched:` line in
+  `red4ext/logs/radioportdropoutfix-*.log` on Testing before the first upload.
+- [ ] Nexus release.

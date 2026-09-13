@@ -16,8 +16,8 @@ falls out of the four and goes silent until the car leaves.
 
 One instruction in the radio manager's list rebuild, so the Radioport counts like any other
 receiver. It is on you, so it is always nearest, and the station you are on always keeps its place.
-The function is resolved by RED4ext hash and every byte is verified before any is written; on any
-other game build the plugin logs a line and changes nothing.
+The function is resolved by RED4ext hash and every byte is verified before any is written; where a
+game update has changed the function, the plugin logs a line and changes nothing.
 
 ## Install
 
@@ -27,6 +27,7 @@ game folder. Requires [RED4ext](https://www.nexusmods.com/cyberpunk2077/mods/238
 ## Build
 
 See `plugin/CMakeLists.txt`. RED4ext.SDK is header-only; point the include path at a checkout.
+Releases ship the committed DLL, so see `RELEASING.md` before tagging.
 
 ## License
 

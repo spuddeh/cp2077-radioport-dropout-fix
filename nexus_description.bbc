@@ -1,0 +1,53 @@
+[center][color=#ffff00][size=6][b]Radioport Dropout Fix[/b][/size][/color]
+[i]The Radioport keeps playing when a car tuned to your station drives past.[/i][/center]
+[line]
+[color=#ffff00][size=5][b]Description[/b][/size][/color]
+Walking around with the Radioport on, your station sometimes cuts out for ten to thirty seconds, then comes back on its own. It is not your mods: it happens in an unmodded game.
+
+The game plays at most four radio stations at once, the four whose nearest radio is closest to you. It measures each station from one radio only, and it will not use your Radioport for that whenever any other radio in the world is tuned to the same station, even a parked or passing car with its radio switched off. When that car is further away than four other stations' radios, your station is no longer one of the four, and the Radioport goes silent until the car leaves.
+
+This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so it is always the nearest, and the station you are listening to always keeps its place.
+
+[line]
+[color=#ffff00][size=5][b]Features[/b][/size][/color]
+[list]
+[*][b]No more dropouts.[/b] A car tuned to your station no longer silences your Radioport.[/*]
+[*][b]Nothing else changes.[/b] The game still plays four stations at most; radios you are not listening to behave exactly as before.[/*]
+[*][b]Safe on a game update.[/b] The mod checks the game code before changing it. If a game update has changed that code, it changes nothing and writes a line saying so to [font=Courier New]red4ext\logs\[/font].[/*]
+[*][b]Nothing to configure.[/b] No settings, no keybinds, no menu.[/*]
+[*][b]Safe to remove.[/b] Nothing is written to your save and no game file is touched.[/*]
+[/list]
+[line]
+[color=#ffff00][size=5][b]Requirements[/b][/size][/color]
+[list]
+[*]Cyberpunk 2077 2.31[/*]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/2380]RED4ext[/url][/*]
+[/list]
+[line]
+[color=#ffff00][size=5][b]Installation[/b][/size][/color]
+Install with your mod manager, or extract the archive into your Cyberpunk 2077 folder so you end up with:
+[code]Cyberpunk 2077\red4ext\plugins\RadioportDropoutFix\RadioportDropoutFix.dll[/code]
+
+To confirm it is working, open [font=Courier New]red4ext\logs\[/font] after launching the game. The newest [font=Courier New]radioportdropoutfix[/font] log should contain a line starting with [font=Courier New]patched:[/font].
+
+[color=#ffff00][size=4][b]Uninstall[/b][/size][/color]
+Delete that folder. No save cleanup is needed.
+
+[line]
+[color=#ffff00][size=5][b]Compatibility[/b][/size][/color]
+[list]
+[*]No scripts and no archives, so it does not overlap with redscript, CET or ArchiveXL mods.[/*]
+[*]Only a mod that changes the same instruction in the game overlaps with this one. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
+[/list]
+[line]
+[color=#ffff00][size=5][b]Source[/b][/size][/color]
+The source is on [url=https://github.com/spuddeh/cp2077-radioport-dropout-fix]GitHub[/url].
+
+[line]
+[color=#ffff00][size=5][b]Credits[/b][/size][/color]
+[list]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/2380]RED4ext[/url] by WopsS.[/*]
+[/list]
+[line]
+[color=#ffff00][size=5][b]Disclaimer[/b][/size][/color]
+This mod was developed with the assistance of an LLM. All in-game testing and code validation was performed by a human. No rogue AIs were permitted through the Blackwall.

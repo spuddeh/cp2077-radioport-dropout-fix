@@ -2,7 +2,7 @@
 // Mod Name: Radioport Dropout Fix
 // Author: Spuddeh
 // Description: Stops the Radioport going silent while a passing car is tuned to the same station.
-// File Version: 0.1.0
+// File Version: 1.0.0
 // Credits: RED4ext by WopsS.
 // ======================================================================================
 //
@@ -120,8 +120,8 @@ RED4EXT_C_EXPORT void RED4EXT_CALL Query(RED4ext::v1::PluginInfo* aInfo)
 {
     aInfo->name = L"RadioportDropoutFix";
     aInfo->author = L"Spuddeh";
-    aInfo->version = RED4EXT_V1_SEMVER(0, 1, 0);
-    aInfo->runtime = RED4EXT_V1_RUNTIME_VERSION_LATEST;
+    aInfo->version = RED4EXT_V1_SEMVER(1, 0, 0);
+    aInfo->runtime = RED4EXT_V1_RUNTIME_VERSION_INDEPENDENT;
     aInfo->sdk = RED4EXT_V1_SDK_VERSION_CURRENT;
 }
 
