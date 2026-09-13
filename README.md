@@ -1,14 +1,14 @@
 # Radioport Dropout Fix
 
-A RED4ext plugin for Cyberpunk 2077 2.31 that stops the Radioport going silent while a passing
-car tuned to the same station is nearby.
+A RED4ext plugin for Cyberpunk 2077 2.31 that stops the Radioport going silent while a car or a world
+radio tuned to the same station is nearby.
 
 ## The fault
 
 The game plays at most four radio stations at once: the four whose nearest receiver is closest to
 you. Each station is measured by one receiver, and the game refuses to use your Radioport for that
 whenever any other receiver in the world is tuned to the same station, even one that is switched
-off. A traffic car tuned to your station, radio off, a hundred metres away, becomes the station's
+off. A traffic car or a world radio tuned to your station, even switched off, becomes the station's
 measuring point; wherever four other stations have a receiver closer than that car, your station
 falls out of the four and goes silent until the car leaves.
 
