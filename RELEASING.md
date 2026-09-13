@@ -18,7 +18,7 @@ A Nexus **file id does not exist until a file has been uploaded once**, so the v
 cannot come from CI. Do this once:
 
 1. **Create the Nexus mod page** and set its requirements (RED4ext) and description (paste
-   `nexus_description.bbc`; upload `images/radioport-dropout.png` to the page's images).
+   `nexus_description.bbc`, which already links the diagram from the page's images).
 2. **Build the first zip locally** and upload it by hand through the Nexus site:
    ```pwsh
    Compress-Archive -Path "red4ext" -DestinationPath "RadioportDropoutFix_v1.0.0.zip" -Force
