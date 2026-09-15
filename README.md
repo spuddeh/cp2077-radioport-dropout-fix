@@ -31,9 +31,8 @@ Releases ship the committed DLL, so see `RELEASING.md` before tagging.
 
 ## License
 
-Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). You may use, modify, and share
-this mod and its source for any **noncommercial** purpose, as long as you credit the original
-creator. Commercial use, including paid mods or selling, is not permitted.
+Licensed under the [MIT License](LICENSE). Use, change and share this mod and its source,
+including in your own mods. Keep the licence notice with any copy.
 
 ## Disclaimer
 
