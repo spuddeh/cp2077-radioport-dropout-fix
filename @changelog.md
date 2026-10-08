@@ -1,6 +1,6 @@
 # Changelog - Radioport Dropout Fix
 
-## [Unreleased - 1.1.0]
+## [1.1.0] - 2026-10-08
 
 ### Added
 - `r6/scripts/RadioportDropoutFix/RadioportTier.reds` (module `RadioportDropoutFix`, 1.1.0). A

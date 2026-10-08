@@ -8,7 +8,7 @@
 //              the player at 1, where the Radioport's mixer plays it quieter and filtered until
 //              the next load. Once the player is out, the tier is set back to the game's own 0,
 //              as the unmount event arrives.
-// File Version: 1.1.0
+// Mod Version: 1.1.0
 // ======================================================================================
 
 module RadioportDropoutFix

@@ -5,7 +5,7 @@
   "$mod_page_note": "nexus_mod_id is the number in the mod page URL.",
   "artifacts": {
     "radioport-dropout-fix": {
-      "displayName": "Radioport Dropout Fix",
+      "displayName": "Radioport Fixes",
       "fileBaseName": "RadioportDropoutFix",
       "contentDir": [
         "red4ext",
@@ -20,7 +20,7 @@
       "primary_mod_manager_download": true,
       "show_requirements_pop_up": true,
       "update_mod_version": true,
-      "currentVersion": "1.0.0"
+      "currentVersion": "1.1.0"
     }
   }
 }
