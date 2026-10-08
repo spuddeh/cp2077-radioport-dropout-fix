@@ -18,7 +18,10 @@ module RadioportDropoutFix
 protected cb func OnUnmountingEvent(evt: ref<UnmountingEvent>) -> Bool {
   let result: Bool = wrappedMethod(evt);
   let child = GameInstance.FindEntityByID(this.GetGame(), evt.request.lowLevelMountingInfo.childId) as GameObject;
-  if IsDefined(child) && child.IsPlayer() {
+  // A seat switch arrives as a silent unmount while the player stays in the vehicle, where tier 2 must hold.
+  let data = evt.request.mountData;
+  let silent = IsDefined(data) && IsDefined(data.mountEventOptions) && data.mountEventOptions.silentUnmount;
+  if IsDefined(child) && child.IsPlayer() && !silent {
     GameObject.AudioParameter(this, n"veh_radio_tier", 0.00, n"pocket_radio_emitter");
   }
   return result;
