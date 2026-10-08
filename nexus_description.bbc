@@ -14,9 +14,9 @@ The game plays at most four radio stations at once, the four whose nearest radio
 This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so your station is measured from where you stand, and the station you are listening to keeps its place.
 
 [color=#ffff00][size=4][b]Muffled after a drive[/b][/size][/color]
-After you get out of a vehicle, the Radioport plays quieter and muffled, like a small speaker, until you load a save. It happens after every vehicle, from any seat, the metro included.
+After you drive a car and get out, the Radioport plays quieter and muffled, like a small speaker, until you load a save.
 
-When a save loads, the game sets the Radioport to play clean. Getting out of a vehicle leaves it on a quieter, filtered setting instead. This mod puts it back to the clean setting each time you get out.
+When a save loads, the game sets the Radioport to play clean. Getting out of the car leaves it on a quieter, filtered setting instead. This mod puts it back to the clean setting each time you get out of a vehicle, from any seat.
 [line]
 [color=#ffff00][size=5][b]Requirements[/b][/size][/color]
 [list]

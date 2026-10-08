@@ -27,9 +27,10 @@ game update has changed the function, the plugin logs a line and changes nothing
 ### The fault
 
 The Radioport's mix follows the `veh_radio_tier` audio parameter on the player. The game sets it to 0
-on the Radioport's emitter when a save loads, and at 0 the Radioport plays clean. Getting out of any
-vehicle leaves it at 1, where the Radioport is low- and high-passed and about 3.5 dB quieter, until the
-next load.
+on the Radioport's emitter when a save loads, and at 0 the Radioport plays clean. Getting out of a car
+from the driver's seat leaves it at 1, where the Radioport is low- and high-passed and about 3.5 dB
+quieter, until the next load. Other seats and the metro are not measured without the fix; the fix
+resets the tier on every exit regardless.
 
 ### The fix
 

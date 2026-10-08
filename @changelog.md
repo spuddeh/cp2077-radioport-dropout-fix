@@ -7,7 +7,7 @@
   `@wrapMethod(PlayerPuppet) OnUnmountingEvent` that, when the unmounted child `IsPlayer()`, runs the
   game's own `GameObject.AudioParameter(player, n"veh_radio_tier", 0.00, n"pocket_radio_emitter")`
   (`pocketRadio.swift:74`). The engine's vehicle code leaves `veh_radio_tier` on the player at 1 after
-  any exit, and the Radioport mixer (801426841) plays tier 1 low- and high-passed and about 3.5 dB down
+  a driver's exit from a car (other seats and the metro not measured without the fix), and the Radioport mixer (801426841) plays tier 1 low- and high-passed and about 3.5 dB down
   until the next load. The event arrives after the engine's write, so the 0 is set inside it with no
   delay. Covers every seat, where vanilla's `PocketRadio.HandleVehicleUnmounted` hears only the driver's.
 - An unmount carrying `mountData.mountEventOptions.silentUnmount` is skipped: a seat switch (the
