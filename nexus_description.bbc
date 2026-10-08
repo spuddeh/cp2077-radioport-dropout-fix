@@ -1,35 +1,45 @@
-[center][color=#ffff00][size=6][b]Radioport Dropout Fix[/b][/size][/color]
-[i]The Radioport keeps playing when a car or another radio is tuned to your station.[/i][/center]
+[center][color=#ffff00][size=6][b]Radioport Fixes - Dropouts and Misc Fixes[/b][/size][/color]
+[i]Fixes for vanilla Radioport bugs: dropouts when a car or another radio is tuned to your station, and muffled sound after getting out of a vehicle.[/i][/center]
 [line]
 [color=#ffff00][size=5][b]Description[/b][/size][/color]
-Walking around with the Radioport on, your station sometimes cuts out for ten to thirty seconds, then comes back on its own. It is not your mods: it happens in an unmodded game.
+Fixes for bugs in the Radioport that happen in an unmodded game.
+
+[color=#ffff00][size=4][b]Dropouts[/b][/size][/color]
+Walking around with the Radioport on, your station sometimes cuts out for ten to thirty seconds, then comes back on its own.
 
 The game plays at most four radio stations at once, the four whose nearest radio is closest to you. It measures each station from one radio only, and it will not use your Radioport for that whenever any other radio in the world is tuned to the same station, a passing car or a radio in a bar or apartment, even one that is switched off. When that radio is further away than four other stations' radios, your station is no longer one of the four, and the Radioport goes silent until that radio is out of range. A world radio playing your station goes silent with it.
 
 [center][img]https://staticdelivery.nexusmods.com/mods/3333/images/33838/33838-1789264474-1461224021.png[/img][/center]
 
 This mod changes one instruction in the game so the Radioport counts like any other radio. It is on you, so your station is measured from where you stand, and the station you are listening to keeps its place.
+
+[color=#ffff00][size=4][b]Muffled after a drive[/b][/size][/color]
+After you get out of a vehicle, the Radioport plays quieter and muffled, like a small speaker, until you load a save. It happens after every vehicle, from any seat, the metro included.
+
+When a save loads, the game sets the Radioport to play clean. Getting out of a vehicle leaves it on a quieter, filtered setting instead. This mod puts it back to the clean setting each time you get out.
 [line]
 [color=#ffff00][size=5][b]Requirements[/b][/size][/color]
 [list]
 [*]Cyberpunk 2077 2.31[/*]
 [*][url=https://www.nexusmods.com/cyberpunk2077/mods/2380]RED4ext[/url][/*]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/1511]Redscript[/url][/*]
 [/list]
 [line]
 [color=#ffff00][size=5][b]Installation[/b][/size][/color]
 Install with your mod manager, or extract the archive into your Cyberpunk 2077 folder so you end up with:
-[code]Cyberpunk 2077\red4ext\plugins\RadioportDropoutFix\RadioportDropoutFix.dll[/code]
+[code]Cyberpunk 2077\red4ext\plugins\RadioportDropoutFix\RadioportDropoutFix.dll
+Cyberpunk 2077\r6\scripts\RadioportDropoutFix\RadioportTier.reds[/code]
 
-To confirm it is working, open [font=Courier New]red4ext\logs\[/font] after launching the game. The newest [font=Courier New]radioportdropoutfix[/font] log should contain a line starting with [font=Courier New]patched:[/font].
+To confirm the dropout fix is working, open [font=Courier New]red4ext\logs\[/font] after launching the game. The newest [font=Courier New]radioportdropoutfix[/font] log should contain a line starting with [font=Courier New]patched:[/font].
 
 [color=#ffff00][size=4][b]Uninstall[/b][/size][/color]
-Delete that folder. No save cleanup is needed.
+Delete both folders. No save cleanup is needed.
 
 [line]
 [color=#ffff00][size=5][b]Compatibility[/b][/size][/color]
 [list]
-[*]No scripts and no archives, so it does not overlap with redscript, CET or ArchiveXL mods.[/*]
-[*]Only a mod that changes the same instruction in the game overlaps with this one. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
+[*]The dropout fix has no scripts and no archives. Only a mod that changes the same instruction in the game overlaps with it. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
+[*]The muffled-sound fix adds to the game's own script for getting out of a vehicle without replacing it, so other mods that add to the same script work alongside it.[/*]
 [/list]
 [line]
 [color=#ffff00][size=5][b]Source[/b][/size][/color]
@@ -39,6 +49,7 @@ The source is on [url=https://github.com/spuddeh/cp2077-radioport-dropout-fix]Gi
 [color=#ffff00][size=5][b]Credits[/b][/size][/color]
 [list]
 [*][url=https://www.nexusmods.com/cyberpunk2077/mods/2380]RED4ext[/url] by WopsS.[/*]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/1511]Redscript[/url] by jekky.[/*]
 [/list]
 [line]
 [color=#ffff00][size=5][b]Disclaimer[/b][/size][/color]
