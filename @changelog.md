@@ -1,5 +1,28 @@
 # Changelog - Radioport Dropout Fix
 
+## [Unreleased - 1.1.0]
+
+### Added
+- `r6/scripts/RadioportDropoutFix/RadioportTier.reds` (module `RadioportDropoutFix`, 1.1.0). A
+  `@wrapMethod(PlayerPuppet) OnUnmountingEvent` that, when the unmounted child `IsPlayer()`, runs the
+  game's own `GameObject.AudioParameter(player, n"veh_radio_tier", 0.00, n"pocket_radio_emitter")`
+  (`pocketRadio.swift:74`). The engine's vehicle code leaves `veh_radio_tier` on the player at 1 after
+  any exit, and the Radioport mixer (801426841) plays tier 1 low- and high-passed and about 3.5 dB down
+  until the next load. The event arrives after the engine's write, so the 0 is set inside it with no
+  delay. Covers every seat, where vanilla's `PocketRadio.HandleVehicleUnmounted` hears only the driver's.
+- An unmount carrying `mountData.mountEventOptions.silentUnmount` is skipped: a seat switch (the
+  game's slide-across, `SwitchSeatsDecisions`) arrives as one while the player stays mounted, and a 0
+  there would make the Radioport audible over the car at tier 2. A real exit carries no `mountData`.
+- `release-manifest.json` ships `["red4ext","r6"]`. Redscript is a new requirement.
+
+### Verified in game
+Measurements: the wiki page `entities/radioport-dropout-fix`, section "The radio tier after a drive".
+- Driver exit: tier 2 in the car, 1 as the exit starts, 0 as the unmount lands; the Radioport back to
+  its pre-drive level on the same voice.
+- Sync-to-car off; the game's slide-across from the driver's door against a wall (two silent unmounts
+  skipped, tier held at 2, then 0 on the real passenger exit); a metro ride (boarding `Base` unmount and
+  leaving `Passengers` unmount, neither silent).
+
 ## [1.0.0] - 2026-09-13
 
 ### Changed
