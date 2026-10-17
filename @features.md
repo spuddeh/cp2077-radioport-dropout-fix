@@ -21,7 +21,7 @@
 - 2026-10-08, Testing, the radio tier fix: driver exit, sync-to-car off, the game's slide-across to a
   passenger exit, and a metro ride. The Radioport read tier 0 and its pre-drive level after each.
 - 2026-10-17, Testing, the station selection UI on foot: the track changed with the UI open and the
-  shown name followed.
+  shown name followed, on a natural track change and on RadioXL's skip-track keys.
 
 ## Released
 - 1.0.0 on Nexus (mod 33838) and GitHub, 2026-09-13. The runtime-independent build logged `patched:` on Testing and held against world radios and traffic.
