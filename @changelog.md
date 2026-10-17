@@ -1,6 +1,6 @@
 # Changelog - Radioport Dropout Fix
 
-## [Unreleased - 1.1.1]
+## [Unreleased - 1.2.0]
 
 ### Fixed
 - `r6/scripts/RadioportDropoutFix/RadioportTrackName.reds` (T115). `VehicleRadioPopupGameController`

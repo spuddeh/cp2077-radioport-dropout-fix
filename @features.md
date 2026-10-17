@@ -9,7 +9,7 @@
 - (1.1.0) After any vehicle exit - driver, passenger or metro - the Radioport plays at the
   radio tier the game gives it on loading, clean and at full level, instead of the filtered tier the
   vehicle leaves behind. A seat switch inside the vehicle is left alone. Redscript.
-- (1.1.1, unreleased) The station selection UI shows the Radioport's new song when the track changes
+- (1.2.0, unreleased) The station selection UI shows the Radioport's new song when the track changes
   while it is open on foot, as it already does in a car.
 
 ## Verified in game
