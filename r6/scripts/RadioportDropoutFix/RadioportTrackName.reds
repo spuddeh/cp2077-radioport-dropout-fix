@@ -7,7 +7,7 @@
 //              engine sends from a car's radio controller after comparing the track name each
 //              tick. The Radioport has no such controller, so while the popup is open on foot the
 //              same comparison runs here, every half second, and stops when the popup closes.
-// Mod Version: 1.1.0
+// Mod Version: 1.2.0
 // ======================================================================================
 
 module RadioportDropoutFix

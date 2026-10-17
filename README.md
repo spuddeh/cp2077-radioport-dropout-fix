@@ -1,8 +1,9 @@
 # Radioport Fixes - Dropouts and Misc Fixes
 
 Fixes for vanilla Radioport bugs in Cyberpunk 2077 2.31: a RED4ext plugin that stops the Radioport
-going silent while a car or a world radio tuned to the same station is nearby, and a redscript fix
-for the Radioport playing quieter and muffled after getting out of a vehicle.
+going silent while a car or a world radio tuned to the same station is nearby, and redscript fixes
+for the Radioport playing quieter and muffled after getting out of a vehicle and for the station
+selection UI keeping an old song name on foot.
 
 ## Dropouts
 
@@ -38,6 +39,21 @@ resets the tier on every exit regardless.
 tier back to 0, with the same call the game makes on load, whenever the player leaves a vehicle from any
 seat. A silent unmount is skipped: a seat switch inside the vehicle arrives as one, and the in-car tier
 must hold there.
+
+## Song name on foot
+
+### The fault
+
+The station selection UI (`VehicleRadioPopupGameController`) updates its song name while open only
+from the native `VehicleRadioSongChanged` event. The engine sends it from a car's radio controller,
+which compares the track name every vehicle audio tick. The Radioport has no such controller, so on
+foot the name stays on the old song until a station switch.
+
+### The fix
+
+`r6/scripts/RadioportDropoutFix/RadioportTrackName.reds` wraps the popup's `OnPlayerAttach` and
+`OnClose`. While it is open with no vehicle, a `DelaySystem` callback compares the Radioport's track
+name every 0.5 s of real time and updates the shown name on a change. In a car nothing runs.
 
 ## Install
 

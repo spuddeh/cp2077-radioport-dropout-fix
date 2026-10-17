@@ -1,5 +1,5 @@
 [center][color=#ffff00][size=6][b]Radioport Fixes - Dropouts and Misc Fixes[/b][/size][/color]
-[i]Fixes for vanilla Radioport bugs: dropouts when a car or another radio is tuned to your station, and muffled sound after getting out of a car.[/i][/center]
+[i]Fixes for vanilla Radioport bugs: dropouts when a car or another radio is tuned to your station, muffled sound after getting out of a car, and a song name that does not update on foot.[/i][/center]
 [line]
 [color=#ffff00][size=5][b]Description[/b][/size][/color]
 Fixes for bugs in the Radioport that happen in an unmodded game.
@@ -17,6 +17,11 @@ This mod changes one instruction in the game so the Radioport counts like any ot
 After you drive a car and get out, the Radioport plays quieter and muffled, like a small speaker, until you load a save.
 
 When a save loads, the game sets the Radioport to play clean. Getting out of the car leaves it on a quieter, filtered setting instead. This mod puts it back to the clean setting each time you get out of a vehicle, from any seat.
+
+[color=#ffff00][size=4][b]Song name on foot[/b][/size][/color]
+With the station selection UI open on foot, the song name stays on the old song when the track changes, until you switch station and back.
+
+In a car the game updates the name as each song starts. It does not do this for the Radioport. While the station selection UI is open on foot, this mod checks the song twice a second and updates the name when it changes. In a car it does nothing.
 [line]
 [color=#ffff00][size=5][b]Requirements[/b][/size][/color]
 [list]
@@ -28,7 +33,8 @@ When a save loads, the game sets the Radioport to play clean. Getting out of the
 [color=#ffff00][size=5][b]Installation[/b][/size][/color]
 Install with your mod manager, or extract the archive into your Cyberpunk 2077 folder so you end up with:
 [code]Cyberpunk 2077\red4ext\plugins\RadioportDropoutFix\RadioportDropoutFix.dll
-Cyberpunk 2077\r6\scripts\RadioportDropoutFix\RadioportTier.reds[/code]
+Cyberpunk 2077\r6\scripts\RadioportDropoutFix\RadioportTier.reds
+Cyberpunk 2077\r6\scripts\RadioportDropoutFix\RadioportTrackName.reds[/code]
 
 To confirm the dropout fix is working, open [font=Courier New]red4ext\logs\[/font] after launching the game. The newest [font=Courier New]radioportdropoutfix[/font] log should contain a line starting with [font=Courier New]patched:[/font].
 
@@ -40,6 +46,7 @@ Delete both folders. No save cleanup is needed.
 [list]
 [*]The dropout fix has no scripts and no archives. Only a mod that changes the same instruction in the game overlaps with it. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
 [*]The muffled-sound fix adds to the game's own script for getting out of a vehicle without replacing it, so other mods that add to the same script work alongside it.[/*]
+[*]The song name fix adds to the game's station selection UI without replacing any of it. It also follows RadioXL's skip-track keys.[/*]
 [/list]
 [line]
 [color=#ffff00][size=5][b]Source[/b][/size][/color]
