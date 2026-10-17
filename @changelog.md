@@ -1,5 +1,22 @@
 # Changelog - Radioport Dropout Fix
 
+## [Unreleased - 1.1.1]
+
+### Fixed
+- `r6/scripts/RadioportDropoutFix/RadioportTrackName.reds` (T115). `VehicleRadioPopupGameController`
+  updates its track name while open only from the native `VehicleRadioSongChanged`, which the engine
+  queues from `VehicleAudioRadioController::Update` (a per-tick track-name compare) and so only for a
+  car. On foot it kept the old name until a station switch. `@wrapMethod OnPlayerAttach` starts a
+  `DelaySystem.DelayCallback` loop (`RadioportTrackNameCallback`, 0.5 s, not affected by the popup's
+  time dilation) when there is no `m_playerVehicle`; each call compares `GetRadioReceiverTrackName()`
+  with the last name and calls `SetTrackName` on a change while `IsRadioReceiverActive()`.
+  `@wrapMethod OnClose` cancels it. In a car nothing runs.
+
+### Verified in game
+- 2026-10-17, Testing, on foot, popup open: the callback ran every 0.51 s real time under the popup's
+  dilation; the track went `00016DF6` -> `00016DF9` and the shown name followed. Before the fix, the
+  same test showed 0 song events on foot and a stale name; in a car the event arrived with the change.
+
 ## [1.1.0] - 2026-10-08
 
 ### Added

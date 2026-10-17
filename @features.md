@@ -6,9 +6,11 @@
   station keeps its place among the four that play.
 - The patch is verified byte for byte before it is written. RED4ext loads the plugin on any game
   build; where the function or the bytes differ, the plugin logs and does nothing.
-- (1.1.0, unreleased) After any vehicle exit - driver, passenger or metro - the Radioport plays at the
+- (1.1.0) After any vehicle exit - driver, passenger or metro - the Radioport plays at the
   radio tier the game gives it on loading, clean and at full level, instead of the filtered tier the
   vehicle leaves behind. A seat switch inside the vehicle is left alone. Redscript.
+- (1.1.1, unreleased) The station selection UI shows the Radioport's new song when the track changes
+  while it is open on foot, as it already does in a car.
 
 ## Verified in game
 - 2026-09-12, Testing, at the spot with four world radios within 80 m: a car tuned to Body Heat,
@@ -18,6 +20,8 @@
   every time, five runs out of five.
 - 2026-10-08, Testing, the radio tier fix: driver exit, sync-to-car off, the game's slide-across to a
   passenger exit, and a metro ride. The Radioport read tier 0 and its pre-drive level after each.
+- 2026-10-17, Testing, the station selection UI on foot: the track changed with the UI open and the
+  shown name followed.
 
 ## Released
 - 1.0.0 on Nexus (mod 33838) and GitHub, 2026-09-13. The runtime-independent build logged `patched:` on Testing and held against world radios and traffic.
