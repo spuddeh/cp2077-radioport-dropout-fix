@@ -43,15 +43,15 @@ After that, every future release publishes automatically.
 The version in the git tag is what CI ships, and it must agree with:
 
 - the `Main.cpp` header (`File Version:` line) and `RED4EXT_V1_SEMVER(...)` in `Query`,
+- the `Mod Version:` header of both `.reds` files,
 - `@changelog.md` and `nexus_changelog.md`,
 - `currentVersion` in `release-manifest.json`.
 
-Then rebuild and commit the DLL:
+Then rebuild, and commit the DLL together with `symbols/<version>/` (its DLL and PDB; `release-check` fails a
+DLL whose PDB is not kept):
 
 ```pwsh
-$cm = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
-& $cm --build plugin\build --config Release
-Copy-Item plugin\build\Release\RadioportDropoutFix.dll red4ext\plugins\RadioportDropoutFix\ -Force
+pwsh -File plugin\build.ps1
 ```
 
 The DLL's version is visible in `red4ext/logs/red4ext-*.log` (`RadioportDropoutFix (version: ...)`):

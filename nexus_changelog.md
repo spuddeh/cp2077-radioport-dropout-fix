@@ -1,5 +1,8 @@
 # Changelog
 
+### [v1.2.1]
+- Game 2.5 support.
+
 ### [v1.2.0]
 - Fix: the station selection UI now shows the new song when the track changes while it is open on foot. Before, it kept the old song name until you switched station and back.
 

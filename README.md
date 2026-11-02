@@ -1,6 +1,6 @@
 # Radioport Fixes - Dropouts and Misc Fixes
 
-Fixes for vanilla Radioport bugs in Cyberpunk 2077 2.31: a RED4ext plugin that stops the Radioport
+Fixes for vanilla Radioport bugs in Cyberpunk 2077 2.5 and 2.31: a RED4ext plugin that stops the Radioport
 going silent while a car or a world radio tuned to the same station is nearby, and redscript fixes
 for the Radioport playing quieter and muffled after getting out of a vehicle and for the station
 selection UI keeping an old song name on foot.
@@ -64,7 +64,9 @@ into the game folder. Requires [RED4ext](https://www.nexusmods.com/cyberpunk2077
 
 ## Build
 
-See `plugin/CMakeLists.txt`. RED4ext.SDK is header-only; point the include path at a checkout.
+`pwsh -File plugin\build.ps1` builds the DLL against the RED4ext.SDK commit pinned in `plugin/builds.json`,
+exported from a RED4ext.SDK clone (`-SdkRepo`). One DLL serves every game build: it uses no SDK engine types
+and checks the bytes it patches.
 Releases ship the committed DLL, so see `RELEASING.md` before tagging.
 
 ## License

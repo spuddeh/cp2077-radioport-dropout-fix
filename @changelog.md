@@ -1,5 +1,18 @@
 # Changelog - Radioport Dropout Fix
 
+## [1.2.1] - 2026-11-02
+
+### Changed
+- Built with the portfolio's RED4ext plugin standard (`plugin/build.ps1`, `red4ext-plugin.cmake`, `builds.json`): one
+  build, game `any`, RED4ext.SDK pinned to `5246e659`; PDB kept in `symbols/1.2.1/any/`, no incremental linking. Still
+  runtime-independent: the plugin uses no SDK engine types.
+
+### Verified
+- Game 2.5 needs every fix: the rebuild loop still lets any untagged receiver replace the Radioport's with no distance
+  test (patch site at the same `+0x14d`, `patched` on Testing); `vehicleRadioPopup.swift` is unchanged; with the mod
+  off the Radioport's `veh_radio_tier` read 1 for the 24 s on foot after leaving a car. The 1.2.0 DLL patched on both
+  2.31 (Gameplay) and 2.5 (Testing).
+
 ## [1.2.0] - 2026-10-17
 
 ### Fixed

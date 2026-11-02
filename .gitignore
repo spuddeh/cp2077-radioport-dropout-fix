@@ -3,6 +3,7 @@ CLAUDE.md
 
 # Build output
 plugin/build/
+plugin/build-*/
 
 # Nexus page images
 images/
