@@ -39,12 +39,12 @@ Cyberpunk 2077\r6\scripts\RadioportDropoutFix\RadioportTrackName.reds[/code]
 To confirm the dropout fix is working, open [font=Courier New]red4ext\logs\[/font] after launching the game. The newest [font=Courier New]radioportdropoutfix[/font] log should contain a line starting with [font=Courier New]patched:[/font].
 
 [color=#ffff00][size=4][b]Uninstall[/b][/size][/color]
-Delete both folders. No save cleanup is needed.
+Delete both folders.
 
 [line]
 [color=#ffff00][size=5][b]Compatibility[/b][/size][/color]
 [list]
-[*]The dropout fix has no scripts and no archives. Only a mod that changes the same instruction in the game overlaps with it. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
+[*]Only a mod that changes the same instruction in the game overlaps with it. If one is installed, this mod sees the change already made, leaves it alone and says so in its log.[/*]
 [*]The muffled-sound fix adds to the game's own script for getting out of a vehicle without replacing it, so other mods that add to the same script work alongside it.[/*]
 [*]The song name fix adds to the game's station selection UI without replacing any of it. It also follows RadioXL's skip-track keys.[/*]
 [/list]
