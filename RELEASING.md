@@ -24,7 +24,7 @@ cannot come from CI. Do this once:
    Compress-Archive -Path "red4ext" -DestinationPath "RadioportDropoutFix_v1.0.0.zip" -Force
    ```
 3. **Read the file id and set it as a repository VARIABLE.** On the mod page open the **Files**
-   tab > **API Info** and copy the id - Nexus labels it **"Group ID"** there. Set it as the
+   tab > **API Info** and copy the id - Nexus labels it **"File ID"** there. Set it as the
    repository variable **`NEXUS_FILE_ID_RADIOPORT_DROPOUT_FIX`** (Settings > Secrets and
    variables > Actions > **Variables**). `nexus_mod_id` (33838) is already in `release-manifest.json`.
 
