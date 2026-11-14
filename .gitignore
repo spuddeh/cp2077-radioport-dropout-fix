@@ -15,3 +15,5 @@ images/
 .vscode/
 .history/
 *.log
+# Nexus AI disclosure section, pasted on the site
+nexus_ai_disclaimer.txt
