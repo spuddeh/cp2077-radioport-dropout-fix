@@ -1,0 +1,1 @@
+Fixes vanilla Radioport bugs. It no longer goes silent when a passing car or a world radio is tuned to your station, and smaller bugs are fixed too, such as muffled sound after getting out of a car and a song name that does not update on foot.
