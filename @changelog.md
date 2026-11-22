@@ -11,7 +11,17 @@
   still activates as before. On the base class, so `VehiclesManagerPopupGameController` (vehicle call-in) gets it
   too; its own `m_selectAnimProxy` guard already ignored the second call.
 
+### Added
+- `optional/RadioportOff/r6/scripts/RadioportOff/RadioportOff.reds` (T164): a separate optional file that does not
+  need the main mod. `@wrapMethod PocketRadio.HandleInputAction` passes input on only while `m_isInMetro`;
+  `@wrapMethod PocketRadio.TurnOn` does nothing (the only place `m_isOn` becomes true);
+  `@wrapMethod PocketRadioWheelDecisions.EnterCondition` returns false unless V has `MetroRide`. Not yet in
+  `release-manifest.json`.
+
 ### Verified in game
+- 2026-11-23, Testing, Radioport Off: pad D-pad Left and keyboard Z taps, a full pad hold (`BUTTON_HOLD_COMPLETE`)
+  and a keyboard hold left the Radioport off and opened no station list; leaving a car with its radio on and Sync
+  to Vehicle Radio on left it off. The same exit with the file unloaded turned the Radioport on. Metro ride not tested.
 - 2026-11-23, Testing, observing `VehicleRadioPopupGameController.Activate` and `QuickSlotsManager.SendRadioEvent`.
   Without the file (hot reload): one keyboard press gave 2 `Activate` and 2 `SendRadioEvent`. With it: keyboard
   E and Enter, pad A and a mouse click each gave 1 and 1, on foot and in a car. Vehicle call-in list: one

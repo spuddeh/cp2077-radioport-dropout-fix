@@ -14,6 +14,10 @@
 - (Unreleased) Choosing a station in the station selection UI applies it once, with keyboard, pad or
   mouse, on foot and in a car. Redscript.
 
+## Optional file (unreleased)
+- Radioport Off: the Radioport stays off. Its button and hold do nothing and leaving a vehicle does
+  not turn it on. Needs Redscript only, not the main mod. Metro ride radio left to the game.
+
 ## Verified in game
 - 2026-09-12, Testing, at the spot with four world radios within 80 m: a car tuned to Body Heat,
   radio off, joined the station's listener list for 28 s and Body Heat stayed active with its voice
