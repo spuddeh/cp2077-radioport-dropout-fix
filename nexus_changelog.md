@@ -1,5 +1,8 @@
 # Changelog
 
+### [Unreleased]
+- Fix: choosing a station in the station selection UI applies it once. Before, it was applied twice, on the button press and again on its release.
+
 ### [v1.2.1]
 - Game 2.5 support.
 

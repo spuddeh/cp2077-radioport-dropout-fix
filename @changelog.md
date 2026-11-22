@@ -1,5 +1,22 @@
 # Changelog - Radioport Dropout Fix
 
+## [Unreleased]
+
+### Fixed
+- `r6/scripts/RadioportDropoutFix/RadioportSingleActivate.reds` (T163).
+  `BaseModalListPopupGameController.OnAction` calls `Activate()` on `proceed` `BUTTON_PRESSED` and again on
+  `BUTTON_RELEASED`, so the station selection UI sent `SendRadioEvent` twice per pick. `@wrapMethod OnAction`
+  records (`@addField m_radioportProceedActivated`) that a press activated, and drops the release that follows it
+  without calling the wrapped method. A press that lands during the fade animation is not recorded, so its release
+  still activates as before. On the base class, so `VehiclesManagerPopupGameController` (vehicle call-in) gets it
+  too; its own `m_selectAnimProxy` guard already ignored the second call.
+
+### Verified in game
+- 2026-11-23, Testing, observing `VehicleRadioPopupGameController.Activate` and `QuickSlotsManager.SendRadioEvent`.
+  Without the file (hot reload): one keyboard press gave 2 `Activate` and 2 `SendRadioEvent`. With it: keyboard
+  E and Enter, pad A and a mouse click each gave 1 and 1, on foot and in a car. Vehicle call-in list: one
+  `Activate`, one `SummonVehicle`.
+
 ## [1.2.1] - 2026-11-02
 
 ### Changed

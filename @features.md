@@ -11,6 +11,8 @@
   vehicle leaves behind. A seat switch inside the vehicle is left alone. Redscript.
 - (1.2.0) The station selection UI shows the Radioport's new song when the track changes
   while it is open on foot, as it already does in a car.
+- (Unreleased) Choosing a station in the station selection UI applies it once, with keyboard, pad or
+  mouse, on foot and in a car. Redscript.
 
 ## Verified in game
 - 2026-09-12, Testing, at the spot with four world radios within 80 m: a car tuned to Body Heat,
@@ -22,6 +24,8 @@
   passenger exit, and a metro ride. The Radioport read tier 0 and its pre-drive level after each.
 - 2026-10-17, Testing, the station selection UI on foot: the track changed with the UI open and the
   shown name followed, on a natural track change and on RadioXL's skip-track keys.
+- 2026-11-23, Testing, the station selection UI applies a pick once: keyboard, pad and mouse, on
+  foot and in a car (twice per press without the fix).
 
 ## Released
 - 1.0.0 on Nexus (mod 33838) and GitHub, 2026-09-13. The runtime-independent build logged `patched:` on Testing and held against world radios and traffic.
