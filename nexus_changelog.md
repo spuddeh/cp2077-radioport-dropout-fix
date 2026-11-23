@@ -2,7 +2,8 @@
 
 ### [v1.3.0]
 - Fix: at low master volume the Radioport and the car radio no longer cut out when turned down or when gunfire or the police scanner is heard.
-- Fix: choosing a station in the station selection UI applies it once. Before, it was applied twice, on the button press and again on its release.
+- Fix: choosing a station in the station selection UI applies it once.
+- New: optional file Radioport Off, which keeps the Radioport off for good.
 
 ### [v1.2.1]
 - Game 2.5 support.
