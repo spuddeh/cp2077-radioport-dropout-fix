@@ -22,6 +22,15 @@
 //
 // **The function is resolved by RED4ext hash and every byte is verified before any is written.**
 // A different game build fails the check and nothing is patched, with a log line saying so.
+//
+// **A second patch keeps a radio audible at low master volume.** Every player radio sound (the
+// Radioport and the car radio) is heard only through a user-defined aux send. The game hands Wwise
+// connection thresholds of {-70, -40, -40, -40} dB (direct, game-defined send, user-defined send,
+// reflections), and Wwise drops any send below its threshold. At low master volume a radio's send sits
+// near -40 dB, so a small cut (its own slider, the scanner, gunfire) silences it completely. The
+// user-defined send threshold becomes -96 dB, the voice threshold, before the sound engine starts. The
+// array is patched only where exactly one copy of it exists in the exe's read-only data; game 2.31
+// sets no connection thresholds and has no copy.
 
 #include <Windows.h>
 #include <RED4ext/RED4ext.hpp>
@@ -47,6 +56,11 @@ constexpr size_t kSite = 0x147;
 constexpr uint8_t kExpected[] = {0x49, 0x8B, 0x10, 0x49, 0x8B, 0xC8, 0x44, 0x8A, 0xF8, 0xFF, 0x52, 0x50};
 constexpr size_t kPatchAt = 0x14d;
 constexpr uint8_t kPatched[] = {0x45, 0x30, 0xFF};  // xor r15b, r15b
+
+// The connection thresholds the game passes to AK::SoundEngine::SetConnectionVolumeThresholds.
+constexpr float kSendThresholds[] = {-70.0f, -40.0f, -40.0f, -40.0f};
+constexpr size_t kUserSendIndex = 2;
+constexpr float kUserSendThreshold = -96.0f;
 
 const RED4ext::v1::Sdk* g_sdk = nullptr;
 RED4ext::v1::PluginHandle g_handle = nullptr;
@@ -114,6 +128,62 @@ void Patch()
     }
     Log("the patch site does not hold the expected bytes - not this game build, nothing patched");
 }
+// Every copy of aPattern in the exe's read-only data.
+size_t FindInRdata(const void* aPattern, size_t aLen, uint8_t** aFirst)
+{
+    const auto base = reinterpret_cast<uint8_t*>(GetModuleHandleW(nullptr));
+    const auto dos = reinterpret_cast<IMAGE_DOS_HEADER*>(base);
+    const auto nt = reinterpret_cast<IMAGE_NT_HEADERS*>(base + dos->e_lfanew);
+    auto section = IMAGE_FIRST_SECTION(nt);
+    size_t count = 0;
+    for (WORD i = 0; i < nt->FileHeader.NumberOfSections; ++i, ++section)
+    {
+        if (std::memcmp(section->Name, ".rdata", 6) != 0)
+        {
+            continue;
+        }
+        uint8_t* start = base + section->VirtualAddress;
+        const size_t size = section->Misc.VirtualSize;
+        for (size_t at = 0; at + aLen <= size; at += 4)
+        {
+            if (std::memcmp(start + at, aPattern, aLen) == 0)
+            {
+                if (count++ == 0)
+                {
+                    *aFirst = start + at;
+                }
+            }
+        }
+    }
+    return count;
+}
+
+void PatchSendThreshold()
+{
+    uint8_t* at = nullptr;
+    const size_t copies = FindInRdata(kSendThresholds, sizeof(kSendThresholds), &at);
+    if (copies != 1)
+    {
+        float patched[4];
+        std::memcpy(patched, kSendThresholds, sizeof(patched));
+        patched[kUserSendIndex] = kUserSendThreshold;
+        uint8_t* already = nullptr;
+        if (copies == 0 && FindInRdata(patched, sizeof(patched), &already) == 1)
+        {
+            Log("the send threshold is already -96 dB - another copy of this plugin, or a mod carrying the same fix");
+            return;
+        }
+        Log(copies == 0 ? "no connection thresholds in this game build - send threshold left alone"
+                        : "the connection thresholds appear more than once - send threshold left alone");
+        return;
+    }
+    if (!WriteBytes(at + kUserSendIndex * sizeof(float), &kUserSendThreshold, sizeof(kUserSendThreshold)))
+    {
+        Log("the connection thresholds could not be made writable - send threshold left alone");
+        return;
+    }
+    Log("patched: a radio's send is kept down to -96 dB, so it stays audible at low master volume");
+}
 } // namespace
 
 RED4EXT_C_EXPORT void RED4EXT_CALL Query(RED4ext::v1::PluginInfo* aInfo)
@@ -138,6 +208,7 @@ RED4EXT_C_EXPORT bool RED4EXT_CALL Main(RED4ext::v1::PluginHandle aHandle,
         g_sdk = aSdk;
         g_handle = aHandle;
         Patch();
+        PatchSendThreshold();
     }
     return true;
 }

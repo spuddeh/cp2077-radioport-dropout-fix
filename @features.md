@@ -11,6 +11,8 @@
   vehicle leaves behind. A seat switch inside the vehicle is left alone. Redscript.
 - (1.2.0) The station selection UI shows the Radioport's new song when the track changes
   while it is open on foot, as it already does in a car.
+- (Unreleased) At low master volume the Radioport and the car radio stay audible, quieter as their
+  sliders go down, instead of cutting out. Game 2.5; 2.31 never had the cutout.
 - (Unreleased) Choosing a station in the station selection UI applies it once, with keyboard, pad or
   mouse, on foot and in a car. Redscript.
 

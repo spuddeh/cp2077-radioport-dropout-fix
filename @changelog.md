@@ -3,6 +3,13 @@
 ## [Unreleased]
 
 ### Fixed
+- `plugin/src/Main.cpp` (T167): `PatchSendThreshold`. `audio::SoundEngine::Initialize` passes
+  `AK::SoundEngine::SetConnectionVolumeThresholds` the read-only array `{-70, -40, -40, -40}` dB (2.5
+  `0x1437bc6a0`, its only reader). Every player radio sound is heard only through a user-defined aux send, so at
+  low master volume a small cut pushed that send under -40 dB and Wwise dropped it: total silence. Entry 2 (user-
+  defined send) becomes -96 dB, the voice threshold, at plugin load, before the sound engine starts. Patched only when
+  exactly one copy of the array is in `.rdata`; an already-patched copy is reported. Game 2.31 has no setter and no
+  copy, so nothing changes there.
 - `r6/scripts/RadioportDropoutFix/RadioportSingleActivate.reds` (T163).
   `BaseModalListPopupGameController.OnAction` calls `Activate()` on `proceed` `BUTTON_PRESSED` and again on
   `BUTTON_RELEASED`, so the station selection UI sent `SendRadioEvent` twice per pick. `@wrapMethod OnAction`
@@ -19,6 +26,10 @@
   `release-manifest.json`.
 
 ### Verified in game
+- 2026-11-23, Testing, send threshold: the log shows both patches; Radio Station Probe meter at master 5, the Radioport
+  at 100/95/90 read -23.8/-24.3/-29.9 dB and the car radio (Archer, Dark Star) -22.8/-27.5/-29.8 dB. Without the patch
+  both read -120 at 95 and 90. Sound engine cost of -96 against -40 on a city street: within window-to-window noise
+  (mean per audio frame 694 against 721 microseconds).
 - 2026-11-23, Testing, Radioport Off: pad D-pad Left and keyboard Z taps, a full pad hold (`BUTTON_HOLD_COMPLETE`)
   and a keyboard hold left the Radioport off and opened no station list; leaving a car with its radio on and Sync
   to Vehicle Radio on left it off. The same exit with the file unloaded turned the Radioport on. Metro ride not tested.
