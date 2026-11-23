@@ -7,7 +7,7 @@
 //              release. A release that follows a press which already activated is dropped;
 //              a release with no activating press (the press arrived during the fade-in, or
 //              before the popup listened) still activates, as the game does.
-// Mod Version: 1.2.1
+// Mod Version: 1.3.0
 // ======================================================================================
 
 module RadioportDropoutFix

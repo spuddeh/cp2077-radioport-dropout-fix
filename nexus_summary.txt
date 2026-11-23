@@ -1,1 +1,1 @@
-Fixes vanilla Radioport bugs. It no longer goes silent when a passing car or a world radio plays your station. Also fixes muffled sound after you leave a car, and a song name that does not update on foot.
+Fixes vanilla Radioport bugs. It no longer goes silent when a passing car or a world radio plays your station, and radios no longer cut out at low master volume. Also fixes muffled sound after you leave a car, a song name that does not update on foot, and stations applied twice.

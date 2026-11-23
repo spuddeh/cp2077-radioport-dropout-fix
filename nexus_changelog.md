@@ -1,6 +1,6 @@
 # Changelog
 
-### [Unreleased]
+### [v1.3.0]
 - Fix: at low master volume the Radioport and the car radio no longer cut out when turned down or when gunfire or the police scanner is heard.
 - Fix: choosing a station in the station selection UI applies it once. Before, it was applied twice, on the button press and again on its release.
 

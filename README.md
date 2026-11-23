@@ -1,9 +1,10 @@
 # Radioport Fixes - Dropouts and Misc Fixes
 
 Fixes for vanilla Radioport bugs in Cyberpunk 2077 2.5 and 2.31: a RED4ext plugin that stops the Radioport
-going silent while a car or a world radio tuned to the same station is nearby, and redscript fixes
-for the Radioport playing quieter and muffled after getting out of a vehicle and for the station
-selection UI keeping an old song name on foot.
+going silent while a car or a world radio tuned to the same station is nearby and keeps the radios audible
+at low master volume, and redscript fixes for the Radioport playing quieter and muffled after getting out
+of a vehicle, for the station selection UI keeping an old song name on foot, and for a station pick being
+applied twice. An optional file, Radioport Off, keeps the Radioport off for good.
 
 ## Dropouts
 
@@ -55,11 +56,45 @@ foot the name stays on the old song until a station switch.
 `OnClose`. While it is open with no vehicle, a `DelaySystem` callback compares the Radioport's track
 name every 0.5 s of real time and updates the shown name on a change. In a car nothing runs.
 
+## Station applied twice
+
+### The fault
+
+`BaseModalListPopupGameController.OnAction` calls `Activate()` on the `proceed` button press and again on its
+release, so a station picked in the station selection UI is sent twice.
+
+### The fix
+
+`r6/scripts/RadioportDropoutFix/RadioportSingleActivate.reds` wraps `OnAction`. A release that follows a press
+which already activated is dropped. A release with no activating press before it (the press landed during the
+popup's fade-in) still activates.
+
+## Silent at low master volume
+
+### The fault
+
+The game passes Wwise connection thresholds of `{-70, -40, -40, -40}` dB (direct, game-defined send,
+user-defined send, reflections), and Wwise drops a send below its threshold. Every player radio sound, the
+Radioport and the car radio, is heard only through a user-defined aux send. At low master volume that send
+sits near -40 dB, so a small cut (the radio's own slider, the police scanner, gunfire) silences the radio
+completely. Game 2.31 sets no connection thresholds.
+
+### The fix
+
+The plugin changes the user-defined send threshold to -96 dB, the voice threshold, before the sound engine
+starts. It patches the read-only array only where exactly one copy exists, and leaves the game alone otherwise.
+
+## Radioport Off (optional)
+
+`optional/RadioportOff/r6/scripts/RadioportOff/RadioportOff.reds` keeps the Radioport off: `PocketRadio.TurnOn`
+does nothing, its input passes on only during a metro ride, and the hold that opens the station list is refused
+outside a metro ride. It ships as a separate file and needs only Redscript.
+
 ## Install
 
 Download from [Nexus Mods](https://www.nexusmods.com/cyberpunk2077/mods/33838). Drop the archive into
 your mod manager, or copy `red4ext\plugins\RadioportDropoutFix\` and `r6\scripts\RadioportDropoutFix\`
-into the game folder. Requires [RED4ext](https://www.nexusmods.com/cyberpunk2077/mods/2380) and
+into the game folder. Radioport Off is a separate optional file on the same page. Requires [RED4ext](https://www.nexusmods.com/cyberpunk2077/mods/2380) and
 [Redscript](https://www.nexusmods.com/cyberpunk2077/mods/1511).
 
 ## Build

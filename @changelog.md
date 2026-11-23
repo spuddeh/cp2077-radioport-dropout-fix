@@ -1,6 +1,6 @@
 # Changelog - Radioport Dropout Fix
 
-## [Unreleased]
+## [1.3.0] - 2026-11-23
 
 ### Fixed
 - `plugin/src/Main.cpp` (T167): `PatchSendThreshold`. `audio::SoundEngine::Initialize` passes
